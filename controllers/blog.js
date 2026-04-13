@@ -57,13 +57,13 @@ export const updateBlog = async (req, res) => {
 }
 
 // *********** Blog Deleted *****************
-export const deleteBlog = async(req, res) => {
+export const deleteBlog = async (req, res) => {
     const id = req.params.id
 
     const blog = await Blog.findById(id)
-    if(!blog) return res.status(404).json({
-        success:false,
-        message:"Invalid id"
+    if (!blog) return res.status(404).json({
+        success: false,
+        message: "Invalid id"
     })
 
     await blog.deleteOne()
@@ -71,6 +71,38 @@ export const deleteBlog = async(req, res) => {
         success: true,
         message: "Blog deleted"
     })
+}
 
-   
+// ***************** Fetch all blogs *************************
+export const allBlogs = async (req, res) => {
+
+    const blogs = await Blog.findById(id)
+
+    if (!blogs) return res.status(404).json({
+        success: false,
+        message: "There is no blogs"
+    })
+
+    res.json({
+        success: true,
+        message: "All Blogs",
+        blogs
+    })
+}
+
+export const getBlogById = async (req, res) => {
+    const id = req.params.id
+
+    const blog = await Blog.findById(id)
+    if (!blog) return res.status(404).json({
+        success: false,
+        message: "Invalid id"
+    })
+
+
+    res.json({
+        success: true,
+        message: "Your blog",
+        blog
+    })
 }
