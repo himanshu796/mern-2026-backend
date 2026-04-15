@@ -74,9 +74,9 @@ export const deleteBlog = async (req, res) => {
 }
 
 // ***************** Fetch all blogs *************************
-export const allBlogs = async (req, res) => {
+export const getAllBlogs = async (req, res) => {
 
-    const blogs = await Blog.findById(id)
+    const blogs = await Blog.find()
 
     if (!blogs) return res.status(404).json({
         success: false,

@@ -19,6 +19,6 @@ const blogSchema = new mongoose.Schema({
         required: true
     }
 
-}, { timeStamps: true })
+}, { timestamps: true })
 
 export const Blog = mongoose.model("Blog", blogSchema)
