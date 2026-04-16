@@ -22,9 +22,13 @@ app.use(cors({
 
 mongoose.connect(process.env.MONGO_URL, {
     dbName: "MERN_2026"
-}).then(() => console.log("MongoDB is connected"))
+})
+.then(() => console.log("MongoDB is connected"))
+.catch((err) => {
+    console.error("MongoDB connection error:", err);
+});
 
-// ***** User router *****
+// ***** User router *****  
 app.use('/api/users', userRouter)
 
 // ******** Blog router ********
